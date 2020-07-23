@@ -1,0 +1,85 @@
+Single Variable:  
+    Emissions|CO2:
+        variable_name: "Emissions|CO2"
+        graph_title: "Emissions|CO2"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2 / yr"
+        scale: 1000
+
+    Final Energy:
+        variable_name: "Final Energy"
+        graph_title: "Final Energy"
+        x_axis_title: "Year"
+        y_axis_title: "EJ / yr"
+        scale: 1
+
+    Emissions|Kyoto Gases (SAR-GWP100):
+        variable_name: "Emissions|Kyoto Gases (SAR-GWP100)"
+        graph_title: "Emissions|Kyoto Gases (SAR-GWP100)"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2-equiv / yr"
+        scale: 1000
+
+    Carbon Sequestration|CCS:
+        variable_name: "Carbon Sequestration|CCS"
+        graph_title: "Carbon Sequestration|CCS"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2 / yr"
+        scale: 1000
+
+    Carbon Sequestration|Land Use:
+        variable_name: "Carbon Sequestration|Land Use"
+        graph_title: "Carbon Sequestration|Land Use"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2 / yr"
+        scale: 1000
+
+    Primary Energy:
+        variable_name: "Primary Energy"
+        graph_title: "Primary Energy"
+        x_axis_title: "Year"
+        y_axis_title: "EJ / yr"
+        scale: 1
+
+Multivariable:
+    CO2 Intensity - Final Energy:
+        numerator: "Emissions|CO2"
+        denominator: "Final Energy"
+        unit: "gCO2/MJ"
+        variable_name: "CO2 Intensity Final Energy"
+        graph_title: "CO2 Intensity - Final Energy"
+        x_axis_title: "Year"
+        y_axis_title: "gCO2/MJ"
+        scale: 1
+
+    CO2 Intensity - Primary Energy:
+        numerator: "Emissions|CO2"
+        denominator: "Primary Energy"
+        unit: "gCO2/MJ"
+        variable_name: "CO2 Intensity Primary Energy"
+        graph_title: "CO2 Intensity - Primary Energy"
+        x_axis_title: "Year"
+        y_axis_title: "gCO2/MJ"
+        scale: 1
+    
+    CO2e Intensity:
+        numerator: "Emissions|Kyoto Gases (SAR-GWP100)"
+        denominator: "Final Energy"
+        unit: "gCO2-equiv/MJ"
+        variable_name: "CO2e Intensity"
+        graph_title: "CO2e Intensity"
+        x_axis_title: "Year"
+        y_axis_title: "gCO2-equiv/MJ"
+        scale: 1
+
+    Primary-Final Energy Ratio:
+        numerator: "Final Energy"
+        denominator: "Primary Energy"
+        unit: "%"
+        variable_name: "Primary-Final Energy Ratio"
+        graph_title: "Primary-Final Energy Ratio"
+        x_axis_title: "Year"
+        y_axis_title: "%"
+        scale: 0.01
+
+    
