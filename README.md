@@ -20,3 +20,14 @@ Coming soon
 
 ## Data File in Details
 Coming soon
+
+## Screenshots
+Below are examples of the graphs that this application can generate.
+
+![CO2 Intensity](/screenshots/co2_intensity.png)
+
+![Carbon Sequestration|CCS](/screenshots/carbon_seq_ccs.png)
+
+![Emissions CO2](/screenshots/emissions_co2.png)
+
+![Final Energy](/screenshots/final_energy.png)
