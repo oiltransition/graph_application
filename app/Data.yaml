@@ -76,8 +76,8 @@ Multivariable:
         numerator: "Final Energy"
         denominator: "Primary Energy"
         unit: "%"
-        variable_name: "Primary-Final Energy Ratio"
-        graph_title: "Primary-Final Energy Ratio"
+        variable_name: "Final-Primary Energy Ratio"
+        graph_title: "Final-Primary Energy Ratio"
         x_axis_title: "Year"
         y_axis_title: "%"
         scale: 0.01
