@@ -8,7 +8,6 @@ class InputFileGenerator:
 
     def __fill_in_missing_values(self, df):
         list_of_years_to_calculate_for = sorted([name for name in list(df.columns) if name.isnumeric()])[1:-1]
-        list_of_years_to_calculate_for
         for year in list_of_years_to_calculate_for:
             next5 = str(int(year) + 5)
             prev5 = str(int(year) - 5)
