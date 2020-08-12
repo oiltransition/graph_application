@@ -1,9 +1,9 @@
 import argparse
 import os
 import sys
-from InputFileGenerator import InputFileGenerator
-from FileManager import FileManager
-from GraphGenerator import GraphGenerator
+from managers.InputFileGenerator import InputFileGenerator
+from managers.FileManager import FileManager
+from managers.GraphGenerator import GraphGenerator
 
 # Generating the path to the input file
 pwd = os.getcwd()
