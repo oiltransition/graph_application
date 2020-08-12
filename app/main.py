@@ -5,30 +5,29 @@ from managers.InputFileGenerator import InputFileGenerator
 from managers.FileManager import FileManager
 from managers.GraphGenerator import GraphGenerator
 
-# Generating the path to the input file
-pwd = os.getcwd()
-complete_filepath =  os.path.join(pwd, "input_file.csv")
-
-# Ensuring the file is present in the project
-if not os.path.isfile(complete_filepath):
-    print("The input file not found")
-    sys.exit()
-
-# Creating the objects we need
-input_file_generator = InputFileGenerator(complete_filepath)
+# Creating objects
 file_manager = FileManager()
+input_file_generator = InputFileGenerator(file_manager.input_file_location)
 graphGenerator = GraphGenerator()
+
+# Ensuring the input file is present in the project
+if not file_manager.is_input_file_available():
+    raise FileNotFoundError(file_manager.input_file_location)
+
+# Ensuring the data file is present in the project
+if not file_manager.is_data_file_available():
+    raise FileNotFoundError(file_manager.data_file_location)
 
 # Getting the dictionary with all in data to be analyzed
 all_variable_data = file_manager.get_variable_data()
 single_variable_data = all_variable_data["Single Variable"]
 multi_variable_data = all_variable_data["Multivariable"]
 
-# For each single variable data, generate the input file
+# Single variable Analysis
 for key in single_variable_data.keys():
     variable = single_variable_data[key]
     
-    # Generating and saving the input file
+    # Generating and saving the input file to then be used for generating the graph
     df = input_file_generator.get_dataframe_from_single_variable(variable["variable_name"])
     file_manager.export_dataframe_for_variable(df,variable)
     
@@ -37,11 +36,11 @@ for key in single_variable_data.keys():
     figure = graphGenerator.get_figure_for_variable(variable, path_to_input_file)
     file_manager.export_figure_for_variable(figure, variable)
 
-# For each multivariable data, generate the input file
+# Multivariable Analysis
 for key in multi_variable_data.keys():
     variable = multi_variable_data[key]
     
-    # Generating and saving the input file
+    # Generating and saving the input file to then be used for generating the graph
     df = input_file_generator.get_dataframe_from_multi_variable(variable)
     file_manager.export_dataframe_for_variable(df,variable)
 

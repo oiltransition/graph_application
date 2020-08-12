@@ -2,6 +2,12 @@ import os
 import yaml
 import plotly
 
+'''
+This class is responsible for handling file operations such as:
+- Opening 
+- Exporting
+- Determining existances
+'''
 class FileManager:
 
     def __init__(self):
@@ -10,6 +16,11 @@ class FileManager:
         self.path_to_save_results = os.path.join(main_path, "shell_results")
         if not os.path.exists(self.path_to_save_results):
             os.mkdir(self.path_to_save_results)
+
+        # Setting the location of the Data.yaml file and input_file.csv file
+        pwd = os.getcwd()
+        self.data_file_location =  os.path.join(pwd, "Data.yaml")
+        self.input_file_location = os.path.join(pwd, "input_file.csv")
     
     '''
     Generates the name to be used for naming the file containing
@@ -48,3 +59,9 @@ class FileManager:
             data = yaml.load(file, Loader=yaml.FullLoader)
 
         return data
+
+    def is_data_file_available(self):
+        return os.path.isfile(self.data_file_location)
+
+    def is_input_file_available(self):
+        return os.path.isfile(self.input_file_location)
