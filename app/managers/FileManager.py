@@ -12,24 +12,35 @@ class FileManager:
             os.mkdir(self.path_to_save_results)
     
     '''
-    This method generates the name to be used for naming the file containing
+    Generates the name to be used for naming the file containing
     data or graph of a given variable.
     '''
-    def __get_filename_for_variable(self, variable_name, extension):
+    def __get_filename_from_variable_name(self, variable_name, extension):
         return variable_name.lower().replace(" ","_")+extension
 
-    def export_dataframe_to_csv(self, df, variable_name):
-        filename = self.__get_filename_for_variable(variable_name, ".csv")
-        path_to_export_file = "{}/{}".format(self.path_to_save_results, filename)
+    '''
+    Provides the complete path of where a file is going to be exported to.
+    '''
+    def __get_export_file_path_for_variable(self, variable, extension):
+        variable_name = variable["variable_name"]
+        filename = self.__get_filename_from_variable_name(variable_name, extension)
+        return "{}/{}".format(self.path_to_save_results, filename)
+
+    def export_dataframe_for_variable(self, df, variable):
+        path_to_export_file = self.__get_export_file_path_for_variable(variable, ".csv")
         df.to_csv(index = False, path_or_buf=path_to_export_file)
 
-    def save_figure_for_variable(self, fig, variable_name):
-        filename = self.__get_filename_for_variable(variable_name, ".html")
-        path = "{}/{}".format(self.path_to_save_results, filename)
-        plotly.offline.plot(fig, filename=path)
+    def export_figure_for_variable(self, fig, variable):
+        path_to_export_file = self.__get_export_file_path_for_variable(variable, ".html")
+        plotly.offline.plot(fig, filename=path_to_export_file)
 
-    def get_input_file_path_for_variable_name(self, variable_name):
-        filename = self.__get_filename_for_variable(variable_name, ".csv")
+    '''
+    Provides the location of the file containing the data used for 
+    generating the graph of a given variable.
+    '''
+    def get_input_file_path_for_variable_name(self, variable):
+        variable_name = variable["variable_name"]
+        filename = self.__get_filename_from_variable_name(variable_name, ".csv")
         return "{}/{}".format(self.path_to_save_results, filename)
 
     def get_variable_data(self):

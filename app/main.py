@@ -30,12 +30,12 @@ for key in single_variable_data.keys():
     
     # Generating and saving the input file
     df = input_file_generator.get_dataframe_from_single_variable(variable["variable_name"])
-    file_manager.export_dataframe_to_csv(df,variable["variable_name"])
+    file_manager.export_dataframe_for_variable(df,variable)
     
     # Generating the graph
-    path_to_input_file = file_manager.get_input_file_path_for_variable_name(variable["variable_name"])
+    path_to_input_file = file_manager.get_input_file_path_for_variable_name(variable)
     figure = graphGenerator.get_figure_for_variable(variable, path_to_input_file)
-    file_manager.save_figure_for_variable(figure, variable["variable_name"])
+    file_manager.export_figure_for_variable(figure, variable)
 
 # For each multivariable data, generate the input file
 for key in multi_variable_data.keys():
@@ -43,12 +43,12 @@ for key in multi_variable_data.keys():
     
     # Generating and saving the input file
     df = input_file_generator.get_dataframe_from_multi_variable(variable)
-    file_manager.export_dataframe_to_csv(df,variable["variable_name"])
+    file_manager.export_dataframe_for_variable(df,variable)
 
     # Generating the graph
-    path_to_input_file = file_manager.get_input_file_path_for_variable_name(variable["variable_name"])
+    path_to_input_file = file_manager.get_input_file_path_for_variable_name(variable)
     figure = graphGenerator.get_figure_for_variable(variable, path_to_input_file)
-    file_manager.save_figure_for_variable(figure, variable["variable_name"])
+    file_manager.export_figure_for_variable(figure, variable)
 
 # Printing where to find the results
 print("All results saved at: {}".format(file_manager.path_to_save_results))
