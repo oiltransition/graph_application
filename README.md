@@ -3,10 +3,10 @@ This application creates a set of graphs based on the scenario data available at
 
 ## How to generate the graphs
 
-#### For non-technical Users
+#### Without Running Code
 To download all the data and graphs without running any code, visit https://oiltransition.herokuapp.com/ and follow the download instructions.
 
-#### For Technial Users
+#### With Code
 From the terminal/command line, navigate to the directory containing the `main.py` file and run the command `python main.py`
 
 Ensure your environment has installed all the dependencies specified at the `requirements.txt` file.
