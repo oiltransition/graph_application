@@ -1,10 +1,15 @@
 ## About
 This application creates a set of graphs based on the scenario data available at [IAMC 1.5°C Scenario Explorer hosted by IIASA](https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/#/login?redirect=/workspaces)
 
-## How to run the code
+## How to generate the graphs
+
+#### For non-technical Users
+To download all the data and graphs without running any code, visit https://oiltransition.herokuapp.com/ and follow the download instructions.
+
+#### For Technial Users
 From the terminal/command line, navigate to the directory containing the `main.py` file and run the command `python main.py`
 
-Ensure your environment has the dependencies specified at the `requirements.txt` file installed.
+Ensure your environment has installed all the dependencies specified at the `requirements.txt` file.
 
 ## How it works
 The `input_file.csv` contains the raw data necessary for generating graphs. While the `Data.yaml` specifies the graphs attributes; e.g., x-axis values, y-axis values, title, legend, etc.
