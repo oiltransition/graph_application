@@ -21,9 +21,12 @@ class GraphGenerator:
             elif row["Scenario Group"] == "Low Overshoot 1.5 C":
                 color_for_lines.append("green")
                 name_for_lines.append("Low Overshoot 1.5 C")
-            else:
+            elif row["Scenario Group"] == "Below 1.5 C":
                 color_for_lines.append("blue")
                 name_for_lines.append("Below 1.5 C")
+            else:
+                color_for_lines.append("grey")
+                name_for_lines.append("Other")
 
         assert len(color_for_lines) == len(all_lines)
         assert len(name_for_lines) == len(all_lines)
@@ -83,8 +86,10 @@ class GraphGenerator:
                 color = "red"
             elif group_name == "Low Overshoot 1.5 C":
                 color = "green"
-            else:
+            elif group_name == "Below 1.5 C":
                 color = "blue"
+            else:
+                color = "grey"
 
             fig.add_trace(go.Scatter(
                             x=x_axis,
