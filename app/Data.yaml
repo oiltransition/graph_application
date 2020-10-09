@@ -41,6 +41,48 @@ Single Variable:
         y_axis_title: "EJ / yr"
         scale: 1
 
+    Primary Energy|Oil:
+        variable_name: "Primary Energy|Oil"
+        graph_title: "Primary Energy|Oil"
+        x_axis_title: "Year"
+        y_axis_title: "EJ / yr"
+        scale: 1
+
+    Primary Energy|Gas:
+        variable_name: "Primary Energy|Gas"
+        graph_title: "Primary Energy|Gas"
+        x_axis_title: "Year"
+        y_axis_title: "EJ / yr"
+        scale: 1
+
+    Final Energy|Hydrogen:
+        variable_name: "Final Energy|Hydrogen"
+        graph_title: "Final Energy|Hydrogen"
+        x_axis_title: "Year"
+        y_axis_title: "EJ / yr"
+        scale: 1
+
+    Carbon Sequestration|CCS|Biomass:
+        variable_name: "Carbon Sequestration|CCS|Biomass"
+        graph_title: "Carbon Sequestration|CCS|Biomass"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2 / yr"
+        scale: 1
+
+    Carbon Sequestration|CCS|Fossil:
+        variable_name: "Carbon Sequestration|CCS|Fossil"
+        graph_title: "Carbon Sequestration|CCS|Fossil"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2 / yr"
+        scale: 1
+
+    Emissions|CO2|AFOLU:
+        variable_name: "Emissions|CO2|AFOLU"
+        graph_title: "Emissions|CO2|AFOLU"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2 / yr"
+        scale: 1
+
 Multivariable:
     CO2 Intensity - Final Energy:
         numerator: "Emissions|CO2"
