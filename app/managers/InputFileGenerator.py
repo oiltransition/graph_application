@@ -15,11 +15,23 @@ class InputFileGenerator:
             prev5 = str(int(year) - 5)
             df[str(year)].fillna((df[next5] + df[prev5]) / 2.0, inplace=True)
 
+    def __drop_unwanted_years(self, df, wanted_start_year = 2015, wanted_end_year = 2100):
+        list_of_columns_to_erase = []
+        
+        # Determine the column names (years) to erase
+        for column_name in list(df):
+            if column_name.isnumeric() and int(column_name) not in list(range(wanted_start_year, wanted_end_year + 1)):
+                list_of_columns_to_erase.append(column_name)
+
+        # Erase the unwanted column names (years)
+        df.drop(columns= list_of_columns_to_erase, inplace= True)
+ 
     def get_dataframe_from_single_variable(self, variable_name):
         df = pd.read_csv(self.path_to_file)
         final = df[df["Variable"] == variable_name]
 
         self.__fill_in_missing_values(final)
+        self.__drop_unwanted_years(final)
         return final
 
     def __perform_calculation_on_scenario(self, dfgroup, variable):
