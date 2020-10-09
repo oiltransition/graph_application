@@ -28,9 +28,7 @@ for key in single_variable_data.keys():
     variable = single_variable_data[key]
 
     # Generate and save the input file to then be used for generating the graph
-    df = input_file_generator.get_dataframe_from_single_variable(
-        variable["variable_name"]
-    )
+    df = input_file_generator.get_dataframe_from_single_variable(variable)
     file_manager.export_dataframe_for_variable(df, variable)
 
     # Generate the graph
