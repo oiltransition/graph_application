@@ -5,6 +5,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "Gt CO2 / yr"
         scale: 1000
+        start_year: 2015
+        end_year: 2100
 
     Final Energy:
         variable_name: "Final Energy"
@@ -12,6 +14,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "EJ / yr"
         scale: 1
+        start_year: 2015
+        end_year: 2100
 
     Emissions|Kyoto Gases (SAR-GWP100):
         variable_name: "Emissions|Kyoto Gases (SAR-GWP100)"
@@ -19,6 +23,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "Gt CO2-equiv / yr"
         scale: 1000
+        start_year: 2015
+        end_year: 2100
 
     Carbon Sequestration|CCS:
         variable_name: "Carbon Sequestration|CCS"
@@ -26,6 +32,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "Gt CO2 / yr"
         scale: 1000
+        start_year: 2015
+        end_year: 2100
 
     Carbon Sequestration|Land Use:
         variable_name: "Carbon Sequestration|Land Use"
@@ -33,6 +41,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "Gt CO2 / yr"
         scale: 1000
+        start_year: 2015
+        end_year: 2100
 
     Primary Energy:
         variable_name: "Primary Energy"
@@ -40,6 +50,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "EJ / yr"
         scale: 1
+        start_year: 2015
+        end_year: 2100
 
     Primary Energy|Oil:
         variable_name: "Primary Energy|Oil"
@@ -47,6 +59,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "EJ / yr"
         scale: 1
+        start_year: 2015
+        end_year: 2100
 
     Primary Energy|Gas:
         variable_name: "Primary Energy|Gas"
@@ -54,6 +68,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "EJ / yr"
         scale: 1
+        start_year: 2015
+        end_year: 2100
 
     Final Energy|Hydrogen:
         variable_name: "Final Energy|Hydrogen"
@@ -61,6 +77,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "EJ / yr"
         scale: 1
+        start_year: 2015
+        end_year: 2100
 
     Carbon Sequestration|CCS|Biomass:
         variable_name: "Carbon Sequestration|CCS|Biomass"
@@ -68,6 +86,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "Gt CO2 / yr"
         scale: 1
+        start_year: 2015
+        end_year: 2100
 
     Carbon Sequestration|CCS|Fossil:
         variable_name: "Carbon Sequestration|CCS|Fossil"
@@ -75,6 +95,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "Gt CO2 / yr"
         scale: 1
+        start_year: 2015
+        end_year: 2100
 
     Emissions|CO2|AFOLU:
         variable_name: "Emissions|CO2|AFOLU"
@@ -82,6 +104,8 @@ Single Variable:
         x_axis_title: "Year"
         y_axis_title: "Gt CO2 / yr"
         scale: 1
+        start_year: 2015
+        end_year: 2100
 
 Multivariable:
     CO2 Intensity - Final Energy:
@@ -93,6 +117,8 @@ Multivariable:
         x_axis_title: "Year"
         y_axis_title: "gCO2/MJ"
         scale: 1
+        start_year: 2015
+        end_year: 2100
 
     CO2 Intensity - Primary Energy:
         numerator: "Emissions|CO2"
@@ -103,6 +129,8 @@ Multivariable:
         x_axis_title: "Year"
         y_axis_title: "gCO2/MJ"
         scale: 1
+        start_year: 2015
+        end_year: 2100
     
     CO2e Intensity:
         numerator: "Emissions|Kyoto Gases (SAR-GWP100)"
@@ -113,6 +141,8 @@ Multivariable:
         x_axis_title: "Year"
         y_axis_title: "gCO2-equiv/MJ"
         scale: 1
+        start_year: 2015
+        end_year: 2100
 
     Primary-Final Energy Ratio:
         numerator: "Final Energy"
@@ -123,5 +153,7 @@ Multivariable:
         x_axis_title: "Year"
         y_axis_title: "%"
         scale: 0.01
+        start_year: 2015
+        end_year: 2100
 
     
