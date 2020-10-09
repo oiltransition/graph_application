@@ -12,13 +12,13 @@ This class is responsible for handling file operations such as:
 
 class FileManager:
     def __init__(self):
-        # Creating the directory where files will be saved to
+        # Create the directory where files will be saved to
         main_path = os.path.expanduser("~")
         self.path_to_save_results = os.path.join(main_path, "shell_results")
         if not os.path.exists(self.path_to_save_results):
             os.mkdir(self.path_to_save_results)
 
-        # Setting the location of the Data.yaml file and input_file.csv file
+        # Set the location of the Data.yaml file and input_file.csv file
         pwd = os.getcwd()
         self.data_file_location = os.path.join(pwd, "Data.yaml")
         self.input_file_location = os.path.join(pwd, "input_file.csv")
