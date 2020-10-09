@@ -15,7 +15,7 @@ class InputFileGenerator:
             prev5 = str(int(year) - 5)
             df[str(year)].fillna((df[next5] + df[prev5]) / 2.0, inplace=True)
 
-    def __drop_unwanted_years(self, df, wanted_start_year = 2015, wanted_end_year = 2100):
+    def __drop_unwanted_years(self, df, wanted_start_year, wanted_end_year):
         list_of_columns_to_erase = []
         
         # Determine the column names (years) to erase
@@ -26,12 +26,16 @@ class InputFileGenerator:
         # Erase the unwanted column names (years)
         df.drop(columns= list_of_columns_to_erase, inplace= True)
  
-    def get_dataframe_from_single_variable(self, variable_name):
+    def get_dataframe_from_single_variable(self, variable):
+        variable_name = variable["variable_name"]
+        start_year = variable["start_year"]
+        end_year = variable["end_year"]
+        
         df = pd.read_csv(self.path_to_file)
         final = df[df["Variable"] == variable_name]
 
         self.__fill_in_missing_values(final)
-        self.__drop_unwanted_years(final)
+        self.__drop_unwanted_years(final, start_year, end_year)
         return final
 
     def __perform_calculation_on_scenario(self, dfgroup, variable):
@@ -90,10 +94,15 @@ class InputFileGenerator:
         return pd.concat(list_of_dataframes)
 
     def get_dataframe_from_multi_variable(self, variable):
+        start_year = variable["start_year"]
+        end_year = variable["end_year"]
+        
         df = pd.read_csv(self.path_to_file)
         final = df[
             (df["Variable"] == variable["numerator"])
             | (df["Variable"] == variable["denominator"])
         ]
+
         self.__fill_in_missing_values(final)
+        self.__drop_unwanted_years(final, start_year, end_year)
         return self.__perform_multi_variable_calculation(final, variable)
