@@ -52,13 +52,16 @@ for key in multi_variable_data.keys():
 
 # Cumulative - Single Variable Analysis
 for key in cummulative_single_variable_data.keys():
-    # To differentiate cumulative from non-cumulative, we need to pass allow rename files with the "cumulative" keyword.
+    variable = cummulative_single_variable_data[key]
 
     # Generate and save the input file to then be used for generating the graph
+    df = input_file_generator.get_dataframe_for_cummulative_single_variable(variable)
+    file_manager.export_dataframe_for_variable(df, variable, True)
 
-    # Generate the graph
-
-    pass
+     # Generate the graph
+    path_to_input_file = file_manager.get_input_file_path_for_variable_name(variable, True)
+    figure = graphGenerator.get_figure_for_variable(variable, path_to_input_file)
+    file_manager.export_figure_for_variable(figure, variable, True)
 
 # Print where to find the results
 print("All results saved at: {}".format(file_manager.path_to_save_results))
