@@ -22,6 +22,7 @@ if not file_manager.is_data_file_available():
 all_variable_data = file_manager.get_variable_data()
 single_variable_data = all_variable_data["Single Variable"]
 multi_variable_data = all_variable_data["Multivariable"]
+cummulative_single_variable_data = all_variable_data["Cumulative Single Variable"]
 
 # Single variable Analysis
 for key in single_variable_data.keys():
@@ -48,6 +49,16 @@ for key in multi_variable_data.keys():
     path_to_input_file = file_manager.get_input_file_path_for_variable_name(variable)
     figure = graphGenerator.get_figure_for_variable(variable, path_to_input_file)
     file_manager.export_figure_for_variable(figure, variable)
+
+# Cumulative - Single Variable Analysis
+for key in cummulative_single_variable_data.keys():
+    # To differentiate cumulative from non-cumulative, we need to pass allow rename files with the "cumulative" keyword.
+
+    # Generate and save the input file to then be used for generating the graph
+
+    # Generate the graph
+
+    pass
 
 # Print where to find the results
 print("All results saved at: {}".format(file_manager.path_to_save_results))
