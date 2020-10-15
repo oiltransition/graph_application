@@ -156,4 +156,58 @@ Multivariable:
         start_year: 2015
         end_year: 2100
 
+Cumulative Single Variable:
+    Cumulative Emissions|CO2:
+        variable_name: "Emissions|CO2"
+        graph_title: "Cumulative Emissions|CO2"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2"
+        scale: 1
+        start_year: 2015
+        end_year: 2100
+
+    Cumulative Emissions|Kyoto Gases (SAR-GWP100):
+        variable_name: "Emissions|Kyoto Gases (SAR-GWP100)"
+        graph_title: "Cumulative Emissions|Kyoto Gases (SAR-GWP100)"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2-equiv"
+        scale: 1000
+        start_year: 2015
+        end_year: 2100
+
+    Cumulative Primary Energy|Oil:
+        variable_name: "Primary Energy|Oil"
+        graph_title: "Cumulative Primary Energy|Oil"
+        x_axis_title: "Year"
+        y_axis_title: "EJ"
+        scale: 1
+        start_year: 2015
+        end_year: 2100
+
+    Cumulative Primary Energy|Gas:
+        variable_name: "Primary Energy|Gas"
+        graph_title: "Cumulative Primary Energy|Gas"
+        x_axis_title: "Year"
+        y_axis_title: "EJ"
+        scale: 1
+        start_year: 2015
+        end_year: 2100
+
+    Cumulative Carbon Sequestration|CCS|Fossil:
+        variable_name: "Carbon Sequestration|CCS|Fossil"
+        graph_title: "Cumulative Carbon Sequestration|CCS|Fossil"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2"
+        scale: 1
+        start_year: 2015
+        end_year: 2100
+
+    Cumulative Carbon Sequestration|CCS:
+        variable_name: "Carbon Sequestration|CCS"
+        graph_title: "Cumulative Carbon Sequestration|CCS"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2"
+        scale: 1000
+        start_year: 2015
+        end_year: 2100
     
