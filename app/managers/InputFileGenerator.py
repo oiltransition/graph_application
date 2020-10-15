@@ -106,3 +106,14 @@ class InputFileGenerator:
         self.__fill_in_missing_values(final)
         self.__drop_unwanted_years(final, start_year, end_year)
         return self.__perform_multi_variable_calculation(final, variable)
+
+    def _perform_cumulative_analysis(self, localdf, variable):
+        pass
+    
+    def get_dataframe_for_cummulative_single_variable(self, variable):
+        
+        # Get a dataframe with the single variable data
+        df = self.get_dataframe_from_single_variable(variable)
+
+        # Perform cumulative operation
+        return self._perform_cumulative_analysis(df, variable)
