@@ -107,8 +107,65 @@ class InputFileGenerator:
         self.__drop_unwanted_years(final, start_year, end_year)
         return self.__perform_multi_variable_calculation(final, variable)
 
-    def _perform_cumulative_analysis(self, localdf, variable):
-        pass
+    def __get_dict_to_store_cumulative_data(self, df):
+
+        # Dictionary to hold all the cumulative information
+        cumulative_results = {}
+
+        # Add the columns names that the df has
+        for column_name in list(df):
+            cumulative_results[column_name] = []
+
+        return cumulative_results
+
+    def __get_dataframe_from_dictionary(self, dictionary):
+        return pd.DataFrame(dictionary)
+    
+    def _perform_cumulative_analysis(self, df):
+        # Get the dictionary where all cumulative data will be stored
+        cumulative_result = self.__get_dict_to_store_cumulative_data(df)
+
+        # Create a list with only columns with numeric value
+        list_of_column_with_year_values = [i for i in list(df) if i.isnumeric()]
+
+        # Loop over each row and generate the cumulative data
+        for index_of_current_row, row in df.iterrows():
+            cumulative_result["Model"].append(row["Model"])
+            cumulative_result["Scenario"].append(row["Scenario"])
+            cumulative_result["Scenario Group"].append(row["Scenario Group"])
+            cumulative_result["Region"].append(row["Region"])
+            cumulative_result["Variable"].append(row["Variable"])
+            cumulative_result["Unit"].append(row["Unit"])
+            
+            # Calculate the cumulative amount for each year
+            for index_of_current_year, current_year in enumerate(list_of_column_with_year_values):
+
+                # Gather info necessary to calculate cumulative
+                original_amount_of_current_year = row[current_year]
+                
+                # If the current year is the first one of the list, cumulative is the same as the regular amount
+                if index_of_current_year == 0:
+                    cumulative_result[current_year].append(original_amount_of_current_year)
+                    continue
+                    
+                # Gather more necessary info
+                previous_year = list_of_column_with_year_values[index_of_current_year - 1]
+                cumulative_amount_of_prev_year = cumulative_result[previous_year][-1]
+                original_amount_of_prev_year = df.at[index_of_current_row, previous_year]
+                
+                # Perform the calculation
+                cumulative_of_current_year = cumulative_amount_of_prev_year + original_amount_of_current_year + (((original_amount_of_prev_year + original_amount_of_current_year) / 2) * 4)
+                
+                # Save the cumulative of the current year
+                cumulative_result[current_year].append(cumulative_of_current_year)
+            
+        # Generate a dataframe from the dictionary with the data
+        df_cumulative = self.__get_dataframe_from_dictionary(cumulative_result)
+
+        # Asset the new dataframe has the same dimensions as the original dataframe
+        assert len(df) == len(df_cumulative)
+        
+        return df_cumulative
     
     def get_dataframe_for_cummulative_single_variable(self, variable):
         
@@ -116,4 +173,4 @@ class InputFileGenerator:
         df = self.get_dataframe_from_single_variable(variable)
 
         # Perform cumulative operation
-        return self._perform_cumulative_analysis(df, variable)
+        return self._perform_cumulative_analysis(df)
