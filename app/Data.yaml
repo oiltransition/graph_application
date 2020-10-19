@@ -162,7 +162,7 @@ Cumulative Single Variable:
         graph_title: "Cumulative Emissions|CO2"
         x_axis_title: "Year"
         y_axis_title: "Gt CO2"
-        scale: 1
+        scale: 1000
         start_year: 2015
         end_year: 2100
 
