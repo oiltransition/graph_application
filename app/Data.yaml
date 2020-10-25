@@ -17,9 +17,9 @@ Single Variable:
         start_year: 2015
         end_year: 2100
 
-    Emissions|Kyoto Gases (SAR-GWP100):
-        variable_name: "Emissions|Kyoto Gases (SAR-GWP100)"
-        graph_title: "Emissions|Kyoto Gases (SAR-GWP100)"
+    Emissions|Kyoto Gases (AR5-GWP100):
+        variable_name: "Emissions|Kyoto Gases (AR5-GWP100)"
+        graph_title: "Emissions|Kyoto Gases (AR5-GWP100)"
         x_axis_title: "Year"
         y_axis_title: "Gt CO2-equiv / yr"
         scale: 1000
@@ -85,7 +85,7 @@ Single Variable:
         graph_title: "Carbon Sequestration|CCS|Biomass"
         x_axis_title: "Year"
         y_axis_title: "Gt CO2 / yr"
-        scale: 1
+        scale: 1000
         start_year: 2015
         end_year: 2100
 
@@ -94,7 +94,7 @@ Single Variable:
         graph_title: "Carbon Sequestration|CCS|Fossil"
         x_axis_title: "Year"
         y_axis_title: "Gt CO2 / yr"
-        scale: 1
+        scale: 1000
         start_year: 2015
         end_year: 2100
 
@@ -133,7 +133,7 @@ Multivariable:
         end_year: 2100
     
     CO2e Intensity:
-        numerator: "Emissions|Kyoto Gases (SAR-GWP100)"
+        numerator: "Emissions|Kyoto Gases (AR5-GWP100)"
         denominator: "Final Energy"
         unit: "gCO2-equiv/MJ"
         variable_name: "CO2e Intensity"
@@ -166,9 +166,9 @@ Cumulative Single Variable:
         start_year: 2015
         end_year: 2100
 
-    Cumulative Emissions|Kyoto Gases (SAR-GWP100):
-        variable_name: "Emissions|Kyoto Gases (SAR-GWP100)"
-        graph_title: "Cumulative Emissions|Kyoto Gases (SAR-GWP100)"
+    Cumulative Emissions|Kyoto Gases (AR5-GWP100):
+        variable_name: "Emissions|Kyoto Gases (AR5-GWP100)"
+        graph_title: "Cumulative Emissions|Kyoto Gases (AR5-GWP100)"
         x_axis_title: "Year"
         y_axis_title: "Gt CO2-equiv"
         scale: 1000
@@ -198,7 +198,7 @@ Cumulative Single Variable:
         graph_title: "Cumulative Carbon Sequestration|CCS|Fossil"
         x_axis_title: "Year"
         y_axis_title: "Gt CO2"
-        scale: 1
+        scale: 1000
         start_year: 2015
         end_year: 2100
 
