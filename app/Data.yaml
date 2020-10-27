@@ -8,6 +8,15 @@ Single Variable:
         start_year: 2015
         end_year: 2100
 
+    Emissions|CO2|Energy and Industrial Processes:
+        variable_name: "Emissions|CO2|Energy and Industrial Processes"
+        graph_title: "Emissions|CO2|Energy and Industrial Processes"
+        x_axis_title: "Year"
+        y_axis_title: "Gt CO2 / yr"
+        scale: 1000
+        start_year: 2015
+        end_year: 2100
+
     Emissions|CO2|Energy:
         variable_name: "Emissions|CO2|Energy"
         graph_title: "Emissions|CO2|Energy"
