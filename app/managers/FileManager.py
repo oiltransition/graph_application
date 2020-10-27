@@ -28,7 +28,9 @@ class FileManager:
     data or graph of a given variable.
     """
 
-    def __get_filename_from_variable_name(self, variable_name, extension, is_cumulative_analysis):
+    def __get_filename_from_variable_name(
+        self, variable_name, extension, is_cumulative_analysis
+    ):
         # The filename is based on the variable name
         filename = variable_name.lower().replace(" ", "_") + extension
 
@@ -42,13 +44,19 @@ class FileManager:
     Provides the complete path of where a file is going to be exported to.
     """
 
-    def __get_export_file_path_for_variable(self, variable, extension, is_cumulative_analysis):
+    def __get_export_file_path_for_variable(
+        self, variable, extension, is_cumulative_analysis
+    ):
         variable_name = variable["variable_name"]
-        filename = self.__get_filename_from_variable_name(variable_name, extension, is_cumulative_analysis)
+        filename = self.__get_filename_from_variable_name(
+            variable_name, extension, is_cumulative_analysis
+        )
         return "{}/{}".format(self.path_to_save_results, filename)
 
     def export_dataframe_for_variable(self, df, variable, is_cumulative_analysis):
-        path_to_export_file = self.__get_export_file_path_for_variable(variable, ".csv", is_cumulative_analysis)
+        path_to_export_file = self.__get_export_file_path_for_variable(
+            variable, ".csv", is_cumulative_analysis
+        )
         df.to_csv(index=False, path_or_buf=path_to_export_file)
 
     def export_figure_for_variable(self, fig, variable, is_cumulative_analysis):
@@ -64,7 +72,9 @@ class FileManager:
 
     def get_input_file_path_for_variable_name(self, variable, is_cumulative_analysis):
         variable_name = variable["variable_name"]
-        filename = self.__get_filename_from_variable_name(variable_name, ".csv", is_cumulative_analysis)
+        filename = self.__get_filename_from_variable_name(
+            variable_name, ".csv", is_cumulative_analysis
+        )
         return "{}/{}".format(self.path_to_save_results, filename)
 
     def get_variable_data(self):
