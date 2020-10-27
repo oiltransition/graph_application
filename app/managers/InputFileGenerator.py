@@ -17,20 +17,22 @@ class InputFileGenerator:
 
     def __drop_unwanted_years(self, df, wanted_start_year, wanted_end_year):
         list_of_columns_to_erase = []
-        
+
         # Determine the column names (years) to erase
         for column_name in list(df):
-            if column_name.isnumeric() and int(column_name) not in list(range(wanted_start_year, wanted_end_year + 1)):
+            if column_name.isnumeric() and int(column_name) not in list(
+                range(wanted_start_year, wanted_end_year + 1)
+            ):
                 list_of_columns_to_erase.append(column_name)
 
         # Erase the unwanted column names (years)
-        df.drop(columns= list_of_columns_to_erase, inplace= True)
- 
+        df.drop(columns=list_of_columns_to_erase, inplace=True)
+
     def get_dataframe_from_single_variable(self, variable):
         variable_name = variable["variable_name"]
         start_year = variable["start_year"]
         end_year = variable["end_year"]
-        
+
         df = pd.read_csv(self.path_to_file)
         final = df[df["Variable"] == variable_name]
 
@@ -96,7 +98,7 @@ class InputFileGenerator:
     def get_dataframe_from_multi_variable(self, variable):
         start_year = variable["start_year"]
         end_year = variable["end_year"]
-        
+
         df = pd.read_csv(self.path_to_file)
         final = df[
             (df["Variable"] == variable["numerator"])
@@ -120,7 +122,7 @@ class InputFileGenerator:
 
     def __get_dataframe_from_dictionary(self, dictionary):
         return pd.DataFrame(dictionary)
-    
+
     def _perform_cumulative_analysis(self, df):
         # Get the dictionary where all cumulative data will be stored
         cumulative_result = self.__get_dict_to_store_cumulative_data(df)
@@ -136,39 +138,60 @@ class InputFileGenerator:
             cumulative_result["Region"].append(row["Region"])
             cumulative_result["Variable"].append(row["Variable"])
             cumulative_result["Unit"].append(row["Unit"])
-            
+
             # Calculate the cumulative amount for each year
-            for index_of_current_year, current_year in enumerate(list_of_column_with_year_values):
+            for index_of_current_year, current_year in enumerate(
+                list_of_column_with_year_values
+            ):
 
                 # Gather info necessary to calculate cumulative
                 original_amount_of_current_year = row[current_year]
-                
+
                 # If the current year is the first one of the list, cumulative is the same as the regular amount
                 if index_of_current_year == 0:
-                    cumulative_result[current_year].append(original_amount_of_current_year)
+                    cumulative_result[current_year].append(
+                        original_amount_of_current_year
+                    )
                     continue
-                    
+
                 # Gather more necessary info
-                previous_year = list_of_column_with_year_values[index_of_current_year - 1]
+                previous_year = list_of_column_with_year_values[
+                    index_of_current_year - 1
+                ]
                 cumulative_amount_of_prev_year = cumulative_result[previous_year][-1]
-                original_amount_of_prev_year = df.at[index_of_current_row, previous_year]
-                
+                original_amount_of_prev_year = df.at[
+                    index_of_current_row, previous_year
+                ]
+
                 # Perform the calculation
-                cumulative_of_current_year = cumulative_amount_of_prev_year + original_amount_of_current_year + (((original_amount_of_prev_year + original_amount_of_current_year) / 2) * 4)
-                
+                cumulative_of_current_year = (
+                    cumulative_amount_of_prev_year
+                    + original_amount_of_current_year
+                    + (
+                        (
+                            (
+                                original_amount_of_prev_year
+                                + original_amount_of_current_year
+                            )
+                            / 2
+                        )
+                        * 4
+                    )
+                )
+
                 # Save the cumulative of the current year
                 cumulative_result[current_year].append(cumulative_of_current_year)
-            
+
         # Generate a dataframe from the dictionary with the data
         df_cumulative = self.__get_dataframe_from_dictionary(cumulative_result)
 
         # Asset the new dataframe has the same dimensions as the original dataframe
         assert len(df) == len(df_cumulative)
-        
+
         return df_cumulative
-    
+
     def get_dataframe_for_cummulative_single_variable(self, variable):
-        
+
         # Get a dataframe with the single variable data
         df = self.get_dataframe_from_single_variable(variable)
 
