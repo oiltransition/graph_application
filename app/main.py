@@ -40,14 +40,20 @@ for analysis_type, value in all_variable_data.items():
             df = input_file_generator.get_dataframe_from_multi_variable(variable_data)
         elif analysis_type == "Cumulative Single Variable":
             is_cumulative = True
-            df = input_file_generator.get_dataframe_for_cummulative_single_variable(variable_data)
-            
+            df = input_file_generator.get_dataframe_for_cummulative_single_variable(
+                variable_data
+            )
+
         # Save the dataframe into the dictionary
-        dataframe_result_dict[variable_key] = {"variable": variable_data, "dataframe": df, "is_cumulative": is_cumulative}
+        dataframe_result_dict[variable_key] = {
+            "variable": variable_data,
+            "dataframe": df,
+            "is_cumulative": is_cumulative,
+        }
 
 # Export dataframe and generate graphs
 for data in dataframe_result_dict.values():
-    
+
     # Get data of importance
     df = data["dataframe"]
     is_cumulative = data["is_cumulative"]
@@ -57,7 +63,9 @@ for data in dataframe_result_dict.values():
     file_manager.export_dataframe_for_variable(df, variable, is_cumulative)
 
     # Generate the graph
-    path_to_input_file = file_manager.get_input_file_path_for_variable_name(variable, is_cumulative)
+    path_to_input_file = file_manager.get_input_file_path_for_variable_name(
+        variable, is_cumulative
+    )
     figure = graphGenerator.get_figure_for_variable(variable, path_to_input_file)
     file_manager.export_figure_for_variable(figure, variable, is_cumulative)
 
